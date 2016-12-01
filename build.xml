@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="pruebaBuild" default="default" basedir=".">
+    <description>Builds, tests, and runs the project pruebaBuild.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask"/>
+    <taskdef name="start" classname="org.apache.catalina.ant.StartTask"/>
+    <taskdef name="stop" classname="org.apache.catalina.ant.StopTask"/>
+    <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask"/>
+    <target name="desplegar" depends="clean,dist">
+        <mkdir dir="zanahoria" />
+        <echo>${dist.war}</echo>
+        <copy file="${dist.war}" tofile="c:\kk.war" />
+        <deploy url="http://172.16.205.120/manager/text" username="user" password="user" path="/pruebaBuild" war="${dist.war}" update="true"/>
+    </target>
+</project>
