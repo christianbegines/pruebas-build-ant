@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/pruebaBuild"/>
+<Context path="/pruebaBuild">
+  <Resource
+      type="javax.sql.DataSource"
+      auth="Container"
+      name="jdbc/despliegue"
+      driverClassName="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://10.0.2.15:3306/despliegue"
+      username="root"
+      password="root"
+      maxActive="100"
+      masIdle="30"
+      maxWait="10000"
+      validationQuery="Select 1 from dual"
+      />
+</Context>
