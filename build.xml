@@ -14,8 +14,7 @@
     <taskdef name="start" classname="org.apache.catalina.ant.StartTask"/>
     <taskdef name="stop" classname="org.apache.catalina.ant.StopTask"/>
     <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask"/>
-    <property name="libs.CopyLibs.classpath" value="ant/lib/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
-    <property name="j2ee.server.home" value="ant" />
+    
     <target name="desplegar" depends="clean,dist">
         <deploy url="http://172.16.205.120/manager/text" username="user" password="user" path="/pruebaBuild" war="C:\Users\alumno\Desktop\DWS\pruebaBuild\dist\pruebaBuild.war" update="true"/>
     </target>
