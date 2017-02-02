@@ -19,4 +19,13 @@
     <target name="desplegar" depends="clean,dist">
         <deploy url="http://172.16.205.193/manager/text" username="admin" password="admin" path="/pruebaBuild" war="./dist/pruebaBuild.war" update="true"/>
     </target>
+    
+    <target name="serverup" >
+        <sshexec host="172.16.205.193" username="root" password="root" command="docker stop ntomcat"/>
+        <sshexec host="172.16.205.193" username="root" password="root" command="docker rm ntomcat"/>
+        <sshexec host="172.16.205.193" username="root" password="root" command="docker run -d -p 80:8080 --name ntomcat naranjito82/tomcat:v2 "/>
+        <!--<sshexec host="172.16.205.193" username="root" password="root" command="touch somefile"/>
+        <sshexec host="172.16.205.193" username="root" password="root" command="touch somefile"/>
+        <sshexec host="172.16.205.193" username="root" password="root" command="touch somefile"/>-->
+    </target>
 </project>
